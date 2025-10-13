@@ -1,0 +1,47 @@
+// reset everything
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0 solid transparent;
+}
+
+// prevent iOS font size change
+html {
+	-webkit-text-size-adjust: 100%;
+}
+
+// reset body line-height
+body {
+	min-height: 100vh;
+	line-height: 1;
+	text-rendering: optimizeSpeed;
+}
+
+// all media elements set to block and full width
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+	display: block;
+	max-width: 100%;
+}
+
+// inherit fonts for inputs and buttons
+input,
+button,
+textarea,
+select {
+	font: inherit;
+	line-height: inherit;
+	color: inherit;
+}
