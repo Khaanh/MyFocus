@@ -13,18 +13,22 @@
 			<main class="main">
 				<div class="holder">
 					<form class="form">
-						<label for="result" class="form__label">
+						<label for="quizResult" class="form__label">
 							<span class="form__quiz" id="quizBlock">2 * 2 + 4 =</span>
 
 							<input
-								id="result"
+								id="quizResult"
 								type="number"
 								class="form__control"
 								placeholder="result"
 							/>
 						</label>
 
-						<button type="button" class="form__btn">Check</button>
+						<button type="button" id="quizBtnCheck" class="form__btn">
+							Check
+						</button>
+
+						<span id="answer"></span>
 					</form>
 				</div>
 			</main>
