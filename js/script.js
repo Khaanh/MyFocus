@@ -5,13 +5,19 @@ const answer = document.querySelector("#answer");
 
 const numbers = Array.from({ length: 100 }, (_, i) => i);
 
-const val1 = Math.floor(Math.random() * numbers.length) + 1;
-const val2 = Math.floor(Math.random() * numbers.length) + 1;
-const val3 = Math.floor(Math.random() * numbers.length) + 1;
-const val4 = Math.floor(Math.random() * numbers.length) + 1;
+let val1, val2, correctAnswer;
 
-const correctAnswer = val1 + val2;
-quizBlock.innerHTML = `${val1} + ${val2}`;
+function randomInt() {
+	val1 = Math.floor(Math.random() * numbers.length) + 1;
+	val2 = Math.floor(Math.random() * numbers.length) + 1;
+	quizBlock.textContent = `${val1} + ${val2}`;
+	correctAnswer = val1 + val2;
+
+	return { val1, val2, correctAnswer };
+}
+randomInt();
+
+console.log(val1, val2);
 
 quizBtnCheck.addEventListener("click", () => {
 	if (Number(quizResult.value) === correctAnswer) {
@@ -21,4 +27,5 @@ quizBtnCheck.addEventListener("click", () => {
 		console.log(false);
 		answer.textContent = `${quizResult.value}`;
 	}
+	randomInt();
 });
