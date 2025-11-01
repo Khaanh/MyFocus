@@ -23,9 +23,11 @@ quizBtnCheck.addEventListener("click", () => {
 	if (Number(quizResult.value) === correctAnswer) {
 		console.log(true);
 		answer.textContent = `${quizResult.value}`;
+		quizResult.value = "";
 	} else {
 		console.log(false);
 		answer.textContent = `${quizResult.value}`;
+		quizResult.value = "";
 	}
 	randomInt();
 });
