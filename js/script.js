@@ -1,6 +1,6 @@
 const quizBlock = document.querySelector("#quizBlock");
-const quizResult = document.querySelector("#quizResult");
-const quizBtnCheck = document.querySelector("#quizBtnCheck");
+const inputResult = document.querySelector("#inputResult");
+const resultBtnCheck = document.querySelector("#resultBtnCheck");
 const inCorrect = document.querySelector("#inCorrect");
 const correct = document.querySelector("#correct");
 const answer = document.querySelector("#answer");
@@ -23,17 +23,17 @@ randomInt();
 
 console.log(val1, val2);
 
-quizBtnCheck.addEventListener("click", () => {
-	if (Number(quizResult.value) === correctAnswer) {
+resultBtnCheck.addEventListener("click", () => {
+	if (Number(inputResult.value) === correctAnswer) {
 		console.log(true);
 		correct.textContent = `Correct answer: ${correctCount++}`;
-		answer.textContent = `${quizResult.value}`;
-		quizResult.value = "";
+		answer.textContent = `${inputResult.value}`;
+		inputResult.value = "";
 	} else {
 		console.log(false);
 		inCorrect.textContent = `Incorrect answer: ${inCorrectCount--}`;
-		answer.textContent = `${quizResult.value}`;
-		quizResult.value = "";
+		answer.textContent = `${inputResult.value}`;
+		inputResult.value = "";
 	}
 	randomInt();
 });
