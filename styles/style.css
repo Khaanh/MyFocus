@@ -51,6 +51,9 @@ select {
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin: 24px 0;
+  border: 2px solid #f1c40f;
+  padding: 30px;
   /* Medium devices (landscape tablets, 768px and up) */
 }
 @media only screen and (min-width: 768px) {
@@ -62,19 +65,39 @@ select {
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-right: 12px;
+  margin-bottom: 12px;
 }
 @media only screen and (min-width: 768px) {
   .form__label {
     flex-direction: row;
+    margin-right: 12px;
+    margin-bottom: 0px;
   }
 }
 .form__quiz {
   font-size: 28px;
-  margin-right: 8px;
+  margin-bottom: 12px;
+}
+@media only screen and (min-width: 768px) {
+  .form__quiz {
+    margin-bottom: 0;
+    margin-right: 12px;
+  }
 }
 .form__btn {
   cursor: pointer;
+  background-color: #3498db;
+  border-color: #2980b9;
+  border-width: 2px;
+  color: #fff;
+  padding: 8px 16px;
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.2s ease-in;
+}
+.form__btn:hover {
+  opacity: 0.8;
+  transform: scale(0.9);
 }
 
 .layout {
@@ -90,4 +113,15 @@ select {
   display: flex;
   align-items: center;
   flex: 1;
+}
+
+.counters {
+  font-size: 24px;
+  margin: 8px 0px;
+}
+.counters.isCorrect {
+  color: #27ae60;
+}
+.counters.isInCorrect {
+  color: #c0392b;
 }/*# sourceMappingURL=style.css.map */
