@@ -45,6 +45,7 @@ select {
   border-radius: 3px;
   padding: 6px;
   font-size: 24px;
+  cursor: pointer;
 }
 
 .form {
@@ -112,6 +113,7 @@ select {
 .main {
   display: flex;
   align-items: center;
+  flex-direction: column;
   flex: 1;
 }
 
@@ -124,4 +126,25 @@ select {
 }
 .counters.isInCorrect {
   color: #c0392b;
+}
+.mode {
+  margin: 24px 0;
+}
+.mode__heading {
+  margin-bottom: 24px;
+  text-align: center;
+  font-size: 32px;
+}
+.mode__list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+.mode__item {
+  margin: 10px 12px;
+}
+.mode__btn {
+  font-size: 20px;
+  min-width: 100px;
 }/*# sourceMappingURL=style.css.map */

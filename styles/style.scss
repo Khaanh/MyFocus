@@ -50,6 +50,7 @@ select {
 	border-radius: 3px;
 	padding: 6px;
 	font-size: 24px;
+	cursor: pointer;
 }
 
 // form block
@@ -128,6 +129,7 @@ select {
 .main {
 	display: flex;
 	align-items: center;
+	flex-direction: column;
 	flex: 1;
 }
 
@@ -141,5 +143,31 @@ select {
 		color: #c0392b;
 	}
 	span {
+	}
+}
+
+.mode {
+	margin: 24px 0;
+
+	&__heading {
+		margin-bottom: 24px;
+		text-align: center;
+		font-size: 32px;
+	}
+
+	&__list {
+		list-style: none;
+		display: flex;
+		flex-wrap: wrap;
+		margin: 10px 0;
+	}
+
+	&__item {
+		margin: 10px 12px;
+	}
+
+	&__btn {
+		font-size: 20px;
+		min-width: 100px;
 	}
 }
