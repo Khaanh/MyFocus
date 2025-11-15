@@ -150,6 +150,9 @@ select {
   border-width: 2px;
   border-style: solid;
   color: #ecf0f1;
+  outline-width: 4px;
+  outline-color: transparent;
+  outline-style: double;
   transform: scale(1);
   opacity: 0.9;
   transition: all 0.2s ease-in;
@@ -157,6 +160,9 @@ select {
 .mode__btn:hover {
   opacity: 1;
   transform: scale(0.9);
+}
+.mode__btn.is-active {
+  outline-color: #2980b9;
 }
 .mode__easy {
   background-color: #2ecc71;
