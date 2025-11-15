@@ -12,6 +12,9 @@ let modelSelected;
 
 modeButtonsList.forEach((mode) => {
 	mode.addEventListener("click", (e) => {
+		modeButtonsList.forEach((mode) => mode.classList.remove("is-active"));
+		mode.classList.add("is-active");
+
 		modelSelected = mode.dataset.mode;
 		randomInt(modelSelected);
 	});
