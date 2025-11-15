@@ -2,13 +2,16 @@
 const quizBlock = document.querySelector("#quizBlock");
 const inputResult = document.querySelector("#inputResult");
 const resultBtnCheck = document.querySelector("#resultBtnCheck");
-
-const incorrectCount = document.querySelector("#incorrectCount");
-const correctCount = document.querySelector("#correctCount");
-
+const incorrectCount = document.querySelector("#incorrectCount span");
+const correctCount = document.querySelector("#correctCount span");
 const modeButtonsList = document.querySelectorAll(".mode__btn");
 
 let modelSelected;
+let correctAnswer;
+let totalCorrect = 1;
+let totalInCorrect = -1;
+
+const numbers = Array.from({ length: 100 }, (_, i) => i);
 
 modeButtonsList.forEach((mode) => {
 	mode.addEventListener("click", (e) => {
@@ -20,15 +23,47 @@ modeButtonsList.forEach((mode) => {
 	});
 });
 
-const numbers = Array.from({ length: 100 }, (_, i) => i);
-
-let correctAnswer;
-let totalCorrect = 1;
-let totalInCorrect = -1;
-
 // functions
 
-resultBtnCheck.addEventListener("click", checkResult);
+resultBtnCheck.addEventListener("click", () => {
+	if (inputResult.value === "") {
+		console.log("asd");
+		return;
+	}
+	checkResult();
+});
+
+// // Improved click handler with validation + Enter key support
+// resultBtnCheck.addEventListener("click", () => {
+// 	const value = inputResult.value.trim();
+
+// 	// require a mode
+// 	if (!modelSelected) {
+// 		alert("Please select a mode first.");
+// 		return;
+// 	}
+
+// 	// don't allow empty input
+// 	if (value === "") {
+// 		inputResult.focus();
+// 		return;
+// 	}
+
+// 	// only integer numbers allowed
+// 	if (!/^-?\d+$/.test(value)) {
+// 		inputResult.value = "";
+// 		inputResult.placeholder = "Enter a valid number";
+// 		inputResult.focus();
+// 		return;
+// 	}
+
+// 	checkResult();
+// });
+
+// // allow Enter key to submit the answer
+// inputResult.addEventListener("keydown", (e) => {
+// 	if (e.key === "Enter") resultBtnCheck.click();
+// });
 
 function randomInt(mode) {
 	if (mode === "easy") {
@@ -66,12 +101,12 @@ function randomInt(mode) {
 function checkResult() {
 	if (Number(inputResult.value) === correctAnswer) {
 		console.log(true);
-		correctCount.textContent = `Correct answer: ${totalCorrect++}`;
+		correctCount.textContent = `${totalCorrect++}`;
 		inputResult.value = "";
 		randomInt(modelSelected);
 	} else {
 		console.log(false);
-		incorrectCount.textContent = `Incorrect answer: ${totalInCorrect--}`;
+		incorrectCount.textContent = `${totalInCorrect--}`;
 		inputResult.value = "";
 		randomInt(modelSelected);
 	}
