@@ -6,16 +6,14 @@ const resultBtnCheck = document.querySelector("#resultBtnCheck");
 const incorrectCount = document.querySelector("#incorrectCount");
 const correctCount = document.querySelector("#correctCount");
 
-// const btnEasy = document.querySelector("#btnEasy");
-// const btnMedium = document.querySelector("#btnMedium");
-// const btnHard = document.querySelector("#btnHard");
 const modeButtonsList = document.querySelectorAll(".mode__btn");
-// const selectedMode
 
-const modeSelected = modeButtonsList.forEach((mode) => {
+let modelSelected;
+
+modeButtonsList.forEach((mode) => {
 	mode.addEventListener("click", (e) => {
-		console.log(mode.dataset.mode);
-		return mode.dataset.mode;
+		modelSelected = mode.dataset.mode;
+		randomInt(modelSelected);
 	});
 });
 
@@ -26,7 +24,6 @@ let totalCorrect = 1;
 let totalInCorrect = -1;
 
 // functions
-randomInt(modeSelected);
 
 resultBtnCheck.addEventListener("click", checkResult);
 
@@ -63,18 +60,16 @@ function randomInt(mode) {
 	}
 }
 
-// console.log(val1, val2);
-
 function checkResult() {
 	if (Number(inputResult.value) === correctAnswer) {
 		console.log(true);
 		correctCount.textContent = `Correct answer: ${totalCorrect++}`;
 		inputResult.value = "";
-		randomInt(modeSelected);
+		randomInt(modelSelected);
 	} else {
 		console.log(false);
 		incorrectCount.textContent = `Incorrect answer: ${totalInCorrect--}`;
 		inputResult.value = "";
-		randomInt(modeSelected);
+		randomInt(modelSelected);
 	}
 }
