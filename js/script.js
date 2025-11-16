@@ -5,8 +5,9 @@ const resultBtnCheck = document.querySelector("#resultBtnCheck");
 const incorrectCount = document.querySelector("#incorrectCount span");
 const correctCount = document.querySelector("#correctCount span");
 const modeButtonsList = document.querySelectorAll(".mode__btn");
+const alertMessage = document.querySelector("#notification");
 
-let modelSelected;
+let modeSelected;
 let correctAnswer;
 let totalCorrect = 1;
 let totalInCorrect = -1;
@@ -18,18 +19,27 @@ modeButtonsList.forEach((mode) => {
 		modeButtonsList.forEach((mode) => mode.classList.remove("is-active"));
 		mode.classList.add("is-active");
 
-		modelSelected = mode.dataset.mode;
-		randomInt(modelSelected);
+		modeSelected = mode.dataset.mode;
+		randomInt(modeSelected);
 	});
 });
 
 // functions
-
 resultBtnCheck.addEventListener("click", () => {
-	if (inputResult.value === "") {
-		console.log("asd");
+	const value = inputResult.value.trim();
+
+	if (!modeSelected) {
+		console.log("choose mode pls");
+		inputResult.focus();
 		return;
 	}
+
+	if (value === "") {
+		console.log("empty string");
+		inputResult.focus();
+		return;
+	}
+
 	checkResult();
 });
 
@@ -38,7 +48,7 @@ resultBtnCheck.addEventListener("click", () => {
 // 	const value = inputResult.value.trim();
 
 // 	// require a mode
-// 	if (!modelSelected) {
+// 	if (!modeSelected) {
 // 		alert("Please select a mode first.");
 // 		return;
 // 	}
@@ -103,11 +113,11 @@ function checkResult() {
 		console.log(true);
 		correctCount.textContent = `${totalCorrect++}`;
 		inputResult.value = "";
-		randomInt(modelSelected);
+		randomInt(modeSelected);
 	} else {
 		console.log(false);
 		incorrectCount.textContent = `${totalInCorrect--}`;
 		inputResult.value = "";
-		randomInt(modelSelected);
+		randomInt(modeSelected);
 	}
 }

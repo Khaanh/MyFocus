@@ -54,7 +54,7 @@ select {
   flex-direction: column;
   margin: 24px 0;
   border: 2px solid #f1c40f;
-  padding: 30px;
+  padding: 24px;
   /* Medium devices (landscape tablets, 768px and up) */
 }
 @media only screen and (min-width: 768px) {
@@ -115,6 +115,7 @@ select {
   align-items: center;
   flex-direction: column;
   flex: 1;
+  position: relative;
 }
 
 .counters {
@@ -175,4 +176,25 @@ select {
 .mode__hard {
   background-color: #e74c3c;
   border-color: #c0392b;
+}
+
+.notification {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translate(-50%, calc(-100% - 14px));
+  min-width: 320px;
+  text-align: center;
+  font-size: 32px;
+  padding: 14px;
+  background-color: #000;
+  transition: all 0.3s ease-in-out;
+}
+.notification.is-active {
+  transform: translate(-50%, 0);
+}
+
+.error {
+  border: 10px solid red;
+  color: #e74c3c;
 }/*# sourceMappingURL=style.css.map */
