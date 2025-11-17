@@ -31,7 +31,7 @@ resultBtnCheck.addEventListener("click", () => {
 	if (!modeSelected) {
 		showNotification("Please choose a mode");
 
-		inputResult.focus();
+		// inputResult.focus();
 		return;
 	}
 
