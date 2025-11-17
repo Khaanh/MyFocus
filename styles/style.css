@@ -183,18 +183,24 @@ select {
   top: 14px;
   left: 50%;
   transform: translate(-50%, calc(-100% - 14px));
+  border-color: #34495e;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 3px;
   min-width: 320px;
   text-align: center;
-  font-size: 32px;
+  font-size: 24px;
   padding: 14px;
-  background-color: #000;
-  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  background-color: #fff;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in;
 }
 .notification.is-active {
+  opacity: 1;
   transform: translate(-50%, 0);
 }
 
 .error {
-  border: 10px solid red;
+  border-color: #e74c3c;
   color: #e74c3c;
 }/*# sourceMappingURL=style.css.map */

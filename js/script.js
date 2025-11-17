@@ -29,51 +29,21 @@ resultBtnCheck.addEventListener("click", () => {
 	const value = inputResult.value.trim();
 
 	if (!modeSelected) {
-		console.log("choose mode pls");
+		showNotification("Please choose a mode");
+
 		inputResult.focus();
 		return;
 	}
 
 	if (value === "") {
-		console.log("empty string");
+		showNotification("Please enter a value");
+
 		inputResult.focus();
 		return;
 	}
 
 	checkResult();
 });
-
-// // Improved click handler with validation + Enter key support
-// resultBtnCheck.addEventListener("click", () => {
-// 	const value = inputResult.value.trim();
-
-// 	// require a mode
-// 	if (!modeSelected) {
-// 		alert("Please select a mode first.");
-// 		return;
-// 	}
-
-// 	// don't allow empty input
-// 	if (value === "") {
-// 		inputResult.focus();
-// 		return;
-// 	}
-
-// 	// only integer numbers allowed
-// 	if (!/^-?\d+$/.test(value)) {
-// 		inputResult.value = "";
-// 		inputResult.placeholder = "Enter a valid number";
-// 		inputResult.focus();
-// 		return;
-// 	}
-
-// 	checkResult();
-// });
-
-// // allow Enter key to submit the answer
-// inputResult.addEventListener("keydown", (e) => {
-// 	if (e.key === "Enter") resultBtnCheck.click();
-// });
 
 function randomInt(mode) {
 	if (mode === "easy") {
@@ -120,4 +90,13 @@ function checkResult() {
 		inputResult.value = "";
 		randomInt(modeSelected);
 	}
+}
+
+function showNotification(txt) {
+	alertMessage.classList.add("is-active");
+	alertMessage.textContent = `${txt}`;
+
+	setTimeout(() => {
+		alertMessage.classList.remove("is-active");
+	}, 2800);
 }
