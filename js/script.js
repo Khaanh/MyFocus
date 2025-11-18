@@ -13,6 +13,14 @@ let totalCorrect = 1;
 let totalInCorrect = -1;
 
 const numbers = Array.from({ length: 100 }, (_, i) => i);
+const mathOperators = ["+", "-", "*", "/"];
+// const mathOperators = ["+", "-"];
+
+// console.log(mathOperators[Math.floor(Math.random() + 1)])
+console.log(
+	mathOperators[Math.floor(Math.random() * mathOperators.length)]
+	// Math.floor(Math.random() * 3) + 1
+);
 
 modeButtonsList.forEach((mode) => {
 	mode.addEventListener("click", (e) => {
@@ -68,7 +76,13 @@ function randomInt(mode) {
 		val2 = Math.floor(Math.random() * numbers.length) + 1;
 		val3 = Math.floor(Math.random() * numbers.length) + 1;
 		val4 = Math.floor(Math.random() * numbers.length) + 1;
-		quizBlock.textContent = `${val1} + ${val2} + ${val3} + ${val4}`;
+		quizBlock.textContent = `${val1} ${
+			mathOperators[Math.floor(Math.random() * mathOperators.length)]
+		} ${val2} ${
+			mathOperators[Math.floor(Math.random() * mathOperators.length)]
+		} ${val3} ${
+			mathOperators[Math.floor(Math.random() * mathOperators.length)]
+		} ${val4}`;
 		correctAnswer = val1 + val2 + val3 + val4;
 		inputResult.focus();
 
