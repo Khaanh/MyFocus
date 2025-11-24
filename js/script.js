@@ -1,5 +1,6 @@
 /**
  * TODOs: UI guideline
+ * TODOs: add backend storage for results
  */
 
 // variables
