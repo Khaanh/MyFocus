@@ -15,6 +15,7 @@ let modeSelected;
 let correctAnswer;
 let totalCorrect = 1;
 let totalInCorrect = -1;
+let notificationTimer = null;
 
 const numbers = Array.from({ length: 100 }, (_, i) => i);
 const selectRandomOperators = (arrOperators) =>
@@ -109,10 +110,13 @@ function checkResult() {
 }
 
 function showNotification(txt) {
-	alertMessage.classList.add("is-active");
-	alertMessage.textContent = `${txt}`;
+	if (notificationTimer) clearTimeout(notificationTimer);
 
-	setTimeout(() => {
+	alertMessage.classList.add("is-active");
+	alertMessage.textContent = txt;
+
+	notificationTimer = setTimeout(() => {
 		alertMessage.classList.remove("is-active");
+		notificationTimer = null;
 	}, 2800);
 }
