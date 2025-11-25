@@ -55,7 +55,6 @@ select {
   margin: 24px 0;
   border: 2px solid #f1c40f;
   padding: 24px;
-  /* Medium devices (landscape tablets, 768px and up) */
 }
 @media only screen and (min-width: 768px) {
   .form {
@@ -74,6 +73,10 @@ select {
     margin-right: 12px;
     margin-bottom: 0px;
   }
+}
+.form__control {
+  max-width: 260px;
+  width: 100%;
 }
 .form__quiz {
   font-size: 28px;
@@ -108,6 +111,7 @@ select {
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
+  padding: 10px;
 }
 
 .main {
@@ -116,6 +120,7 @@ select {
   flex-direction: column;
   flex: 1;
   position: relative;
+  width: 100%;
 }
 
 .counters {
@@ -138,9 +143,15 @@ select {
 }
 .mode__list {
   list-style: none;
+  flex-direction: column;
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
-  margin: 10px 0;
+}
+@media only screen and (min-width: 480px) {
+  .mode__list {
+    flex-direction: row;
+  }
 }
 .mode__item {
   margin: 10px 12px;
